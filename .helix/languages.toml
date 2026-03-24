@@ -1,0 +1,30 @@
+[language-server.ty]
+command = ".venv/bin/ty"
+args = ["server"]
+
+[language-server.ruff]
+command = ".venv/bin/ruff"
+args = ["server"]
+
+[language-server.jedi]
+command = ".venv/bin/jedi-language-server"
+
+[language-server.pylsp]
+command = ".venv/bin/pylsp"
+
+[[language]]
+name = "python"
+formatter = { command = ".venv/bin/ruff", args = ["format", "-"] }
+
+[[language]]
+name = "markdown"
+auto-format = true
+text-width = 80
+formatter = { command = "prettier", args = [
+  "--parser",
+  "markdown",
+  "--prose-wrap",
+  "always",
+  "--print-width",
+  "80",
+] }
