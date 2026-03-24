@@ -23,7 +23,7 @@ dev = [
 
 [tool.pytest]
 addopts = ["--strict-markers"]
-markers = ["unit_test: marks tests as unit tests"]
+markers = ["unit_test: tests a specific and discrete element for correctness"]
 pythonpath = ["src"]
 testpaths = ["tests"]
 

@@ -6,7 +6,7 @@
   };
 
   outputs =
-    { nixpkgs }:
+    { nixpkgs, ... }:
     let
       systems = [
         "x86_64-linux"
@@ -27,7 +27,7 @@
             packages = [
               pkgs.prek
               pkgs.uv
-              pkgs.nixfmt-rfc-style
+              pkgs.nixfmt
               pkgs.statix
               pkgs.deadnix
             ];
