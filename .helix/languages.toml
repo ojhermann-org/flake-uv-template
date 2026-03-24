@@ -15,3 +15,16 @@ command = ".venv/bin/pylsp"
 [[language]]
 name = "python"
 formatter = { command = ".venv/bin/ruff", args = ["format", "-"] }
+
+[[language]]
+name = "markdown"
+auto-format = true
+text-width = 80
+formatter = { command = "prettier", args = [
+  "--parser",
+  "markdown",
+  "--prose-wrap",
+  "always",
+  "--print-width",
+  "80",
+] }
