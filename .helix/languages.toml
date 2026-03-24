@@ -1,3 +1,17 @@
+[language-server.ty]
+command = ".venv/bin/ty"
+args = ["server"]
+
+[language-server.ruff]
+command = ".venv/bin/ruff"
+args = ["server"]
+
+[language-server.jedi]
+command = ".venv/bin/jedi-language-server"
+
+[language-server.pylsp]
+command = ".venv/bin/pylsp"
+
 [[language]]
 name = "python"
-formatter = { command = "ruff", args = ["format", "-"] }
+formatter = { command = ".venv/bin/ruff", args = ["format", "-"] }

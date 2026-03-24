@@ -13,18 +13,25 @@ build-backend = "uv_build"
 
 [dependency-groups]
 dev = [
-    "jedi-language-server>=0.46.0",
-    "pytest>=9.0.2",
-    "python-lsp-server>=1.14.0",
-    "ruff>=0.15.7",
-    "ty>=0.0.24",
+  "jedi-language-server>=0.46.0",
+  "pytest>=9.0.2",
+  "python-lsp-server>=1.14.0",
+  "ruff>=0.15.7",
+  "ty>=0.0.24",
 ]
 
-[tool.uv]
-default-groups = ["dev"]
+
+[tool.pytest]
+addopts = ["--strict-markers"]
+markers = ["unit_test: marks tests as unit tests"]
+pythonpath = ["src"]
+testpaths = ["tests"]
 
 [tool.ruff.lint]
 select = ["I"]
 
 [tool.ruff.lint.isort]
 force-sort-within-sections = true
+
+[tool.uv]
+default-groups = ["dev"]
