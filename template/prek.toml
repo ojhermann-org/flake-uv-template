@@ -1,13 +1,19 @@
 [[repos]]
-repo = "local"
+repo = "builtin"
+hooks = [
+  {id = "no-commit-to-branch"},
+  {id = "trailing-whitespace"},
+  {id = "end-of-file-fixer"},
+  {id = "check-merge-conflict"},
+  {id = "check-toml"},
+  {id = "check-yaml"},
+  {id = "check-json"},
+  {id = "check-json5"},
+  {id = "detect-private-key"},
+]
 
-[[repos.hooks]]
-id = "no-commit-to-main"
-name = "no commit to main"
-language = "system"
-entry = "bash -c 'branch=$(git branch --show-current); if [ \"$branch\" = \"main\" ]; then echo \"Direct commits to main are not allowed.\"; exit 1; fi'"
-pass_filenames = false
-always_run = true
+[[repos]]
+repo = "local"
 
 [[repos.hooks]]
 id = "nix-flake-check"
@@ -16,13 +22,6 @@ language = "system"
 entry = "nix flake check"
 pass_filenames = false
 types = ["nix"]
-
-[[repos.hooks]]
-id = "nix-flake-update"
-name = "update flake.lock"
-language = "system"
-entry = "nix flake update"
-pass_filenames = false
 
 [[repos.hooks]]
 id = "nixfmt"
@@ -52,6 +51,7 @@ name = "uv sync"
 language = "system"
 entry = "uv sync"
 pass_filenames = false
+files = { glob = ["pyproject.toml", "uv.lock"] }
 
 [[repos.hooks]]
 id = "ruff-check"
