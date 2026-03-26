@@ -5,7 +5,7 @@ layout {
         }
         pane split_direction="vertical" {
             pane command="direnv" name="dir" size="20%" {
-                args "exec" "." "./scripts/watch-dir"
+                args "exec" "." "watch-dir"
                 start_suspended false
             }
             pane size="80%" {
